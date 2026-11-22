@@ -1,6 +1,6 @@
 // Jagdish Handloom Carpets — Client Integration Script
 (function () {
-  const API_BASE = window.location.origin.includes('localhost')
+  const API_BASE = window.location.protocol.startsWith('http')
     ? window.location.origin + '/api'
     : 'http://localhost:5000/api';
 

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: jagdish-handloom-carpets
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@jagdishcarpets.com
+      - key: ADMIN_PASSWORD
+        value: Admin@12345
+      - key: CLIENT_ORIGIN
+        value: "*"
+      - key: FROM_EMAIL
+        value: Jagdish Handloom <noreply@jagdishcarpets.com>
+      - key: NOTIFICATION_EMAIL
+        value: jagdishandloom.carpets@email.com
