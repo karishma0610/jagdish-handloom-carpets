@@ -1,0 +1,290 @@
+{
+  "admins": [
+    {
+      "_id": "admin-001",
+      "name": "Jagdish Admin",
+      "email": "admin@jagdishcarpets.com",
+      "password": "$2a$10$0jocs8W0TNeNdT/nV8TwdO9CZbYZWHR7XP.42yWZxACpsRnjK4AOC",
+      "role": "superadmin",
+      "createdAt": "2026-09-06T19:29:57.300Z",
+      "lastLogin": "2026-11-22T19:51:03.563Z",
+      "updatedAt": "2026-11-22T19:51:03.566Z"
+    }
+  ],
+  "products": [
+    {
+      "_id": "prod-001",
+      "title": "Royal Handloom Wool Carpet",
+      "category": "Traditional Carpets",
+      "description": "Classic floral & medallion motifs hand-knotted in premium blended wool with natural earth vegetable dyes.",
+      "priceRange": "₹4,500 - ₹11,000 / sq.m",
+      "basePrice": 4500,
+      "imageUrl": "/carpet1.jpg",
+      "sizesAvailable": [
+        "4x6 ft",
+        "5x8 ft",
+        "6x9 ft",
+        "8x10 ft",
+        "Custom"
+      ],
+      "tag": "Heritage Classic",
+      "material": "100% Handloom Bikaner Wool",
+      "isFeatured": true,
+      "inStock": true,
+      "createdAt": "2026-09-06T19:29:57.300Z"
+    },
+    {
+      "_id": "prod-002",
+      "title": "Scandinavian Handspun Dhurrie Rug",
+      "category": "Dhurrie Rugs",
+      "description": "Lightweight, reversible, tightly woven flatweave. High-traffic durability and zero shedding.",
+      "priceRange": "₹1,800 - ₹4,200 / sq.m",
+      "basePrice": 1800,
+      "imageUrl": "/carpet2.jpg",
+      "sizesAvailable": [
+        "3x5 ft",
+        "4x6 ft",
+        "5x8 ft",
+        "6x9 ft",
+        "Custom"
+      ],
+      "tag": "Reversible Flatweave",
+      "material": "Combed Cotton & Fine Wool Dhurrie",
+      "isFeatured": true,
+      "inStock": true,
+      "createdAt": "2026-09-06T19:29:57.300Z"
+    },
+    {
+      "_id": "prod-003",
+      "title": "Imperial Damask Chenille Weave",
+      "category": "Jacquard Weaves",
+      "description": "Raised velvety relief pattern with regal damask motifs. Feather-soft hand feel coupled with heavy wear resistance.",
+      "priceRange": "₹2,400 - ₹5,500 / sq.m",
+      "basePrice": 2400,
+      "imageUrl": "/carpet3.jpg",
+      "sizesAvailable": [
+        "4x6 ft",
+        "5x8 ft",
+        "6x9 ft",
+        "8x10 ft",
+        "Custom"
+      ],
+      "tag": "Velvet Relief",
+      "material": "Micro-Chenille & Mercerized Cotton",
+      "isFeatured": true,
+      "inStock": true,
+      "createdAt": "2026-09-06T19:29:57.300Z"
+    },
+    {
+      "_id": "prod-004",
+      "title": "Plush Cut-Pile Hand-Tufted Rug",
+      "category": "Hand-Tufted",
+      "description": "Dense cut-pile cushioning engineered for luxury living spaces and hotels. Non-slip natural latex backing.",
+      "priceRange": "₹3,600 - ₹8,500 / sq.m",
+      "basePrice": 3600,
+      "imageUrl": "/carpet4.jpg",
+      "sizesAvailable": [
+        "5x8 ft",
+        "6x9 ft",
+        "8x10 ft",
+        "9x12 ft",
+        "Custom"
+      ],
+      "tag": "Hotel Grade",
+      "material": "New Zealand Wool & Indian Blends",
+      "isFeatured": true,
+      "inStock": true,
+      "createdAt": "2026-09-06T19:29:57.300Z"
+    },
+    {
+      "_id": "prod-005",
+      "title": "Handloom Prayer Mat & Small Accent Rug",
+      "category": "Prayer Rugs",
+      "description": "Traditional arched prayer rug with soft touch foundation, easily rollable for personal use or prayer rooms.",
+      "priceRange": "₹650 - ₹1,800 / piece",
+      "basePrice": 650,
+      "imageUrl": "/carpet5.jpg",
+      "sizesAvailable": [
+        "2x3.5 ft (60x105 cm)",
+        "Custom Sets"
+      ],
+      "tag": "Cushioned Janamaz",
+      "material": "High-Density Velvet Microfiber & Cotton",
+      "isFeatured": true,
+      "inStock": true,
+      "createdAt": "2026-09-06T19:29:57.300Z"
+    }
+  ],
+  "enquiries": [
+    {
+      "_id": "local-1795283521269-554",
+      "createdAt": "2026-11-21T17:52:01.269Z",
+      "updatedAt": "2026-11-21T17:52:01.269Z",
+      "name": "karishma",
+      "company": "",
+      "phone": "12345678910",
+      "email": "karishmachaurasiya007@gmail.com",
+      "category": "Traditional Wool Carpets",
+      "quantity": "2",
+      "message": "",
+      "status": "New",
+      "adminNotes": "",
+      "ipAddress": "::1"
+    },
+    {
+      "_id": "local-1791428396910-337",
+      "createdAt": "2026-11-21T18:00:00.000Z",
+      "updatedAt": "2026-11-21T18:15:00.000Z",
+      "name": "Ramesh Sharma",
+      "company": "Heritage Décor Exports",
+      "phone": "+91 9876543210",
+      "email": "ramesh@heritagedecor.com",
+      "category": "Traditional Wool Carpets",
+      "quantity": "25 pieces",
+      "message": "Looking for bulk wholesale pricing and swatches for our Delhi showroom.",
+      "status": "Contacted",
+      "adminNotes": "Spoke with Mr. Ramesh. Sent catalog PDF and wholesale pricing tier.",
+      "ipAddress": "::1"
+    },
+    {
+      "_id": "local-1788724440691-85",
+      "createdAt": "2026-11-21T19:30:00.000Z",
+      "updatedAt": "2026-11-21T19:30:00.000Z",
+      "name": "Karishma Chaurasiya",
+      "company": "Panipat Home Living",
+      "phone": "+91 7015770383",
+      "email": "karishmachaurasiya925@gmail.com",
+      "category": "Flatweave Dhurrie Rugs",
+      "quantity": "15 pieces",
+      "message": "Need samples of flatweave geometric rugs in pastel earth tones.",
+      "status": "New",
+      "adminNotes": "",
+      "ipAddress": "::1"
+    },
+    {
+      "_id": "local-1788724440692-91",
+      "createdAt": "2026-11-21T20:10:00.000Z",
+      "updatedAt": "2026-11-21T20:45:00.000Z",
+      "name": "Vikram Singhania",
+      "company": "Oberoi Luxury Living",
+      "phone": "+91 9811223344",
+      "email": "vikram@oberoiliving.com",
+      "category": "Hand-Tufted & Cut-Pile Rugs",
+      "quantity": "40 pieces",
+      "message": "Specifying custom cut-pile carpets for resort villa renovation project in Udaipur.",
+      "status": "In Progress",
+      "adminNotes": "CAD drawings received. Yarn density approved. Sample swatch scheduled.",
+      "ipAddress": "::1"
+    },
+    {
+      "_id": "local-1788722997585-35",
+      "createdAt": "2026-11-21T21:05:00.000Z",
+      "updatedAt": "2026-11-21T21:05:00.000Z",
+      "name": "Anita Desai",
+      "company": "Studio Desai Architects",
+      "phone": "+91 9845012345",
+      "email": "anita@studiodesai.in",
+      "category": "Jacquard & Chenille Weaves",
+      "quantity": "30 pieces",
+      "message": "Inquiring about hallway runners and textured jacquard weaves for boutique hotel.",
+      "status": "New",
+      "adminNotes": "",
+      "ipAddress": "::1"
+    }
+  ],
+  "orders": [
+    {
+      "_id": "local-1791428396926-611",
+      "createdAt": "2026-11-21T18:20:00.000Z",
+      "updatedAt": "2026-11-21T18:20:00.000Z",
+      "orderNumber": "JHC-69234679",
+      "customer": {
+        "name": "Priya Mehra",
+        "company": "Studio Mehra Interiors",
+        "phone": "+91 9123456789",
+        "email": "priya@studiomehra.com",
+        "address": {
+          "city": "Gurugram",
+          "state": "Haryana"
+        }
+      },
+      "items": [
+        {
+          "product": null,
+          "productTitle": "Flatweave Dhurrie Rugs",
+          "size": "6x9 ft",
+          "quantity": 4,
+          "pricePerUnit": 1800,
+          "specialInstructions": "Custom geometric motif with rust accents"
+        }
+      ],
+      "totalQuantity": 4,
+      "estimatedTotal": 7200,
+      "status": "Pending",
+      "paymentStatus": "Pending",
+      "adminNotes": ""
+    },
+    {
+      "_id": "local-1791428141420-292",
+      "createdAt": "2026-11-21T19:00:00.000Z",
+      "updatedAt": "2026-11-21T19:30:00.000Z",
+      "orderNumber": "JHC-14193551",
+      "customer": {
+        "name": "Siddharth Singhania",
+        "company": "Royal Heritage Hotel",
+        "phone": "+91 9829012345",
+        "email": "siddharth@royalheritage.in",
+        "address": {
+          "city": "Jaipur",
+          "state": "Rajasthan"
+        }
+      },
+      "items": [
+        {
+          "product": null,
+          "productTitle": "Traditional Wool Carpets",
+          "size": "8x10 ft",
+          "quantity": 12,
+          "pricePerUnit": 4500,
+          "specialInstructions": "Royal Persian border motif with ruby red and indigo palette"
+        }
+      ],
+      "totalQuantity": 12,
+      "estimatedTotal": 54000,
+      "status": "Confirmed",
+      "paymentStatus": "Partially Paid",
+      "adminNotes": "Advance 50% wire transfer received. Looms assigned."
+    },
+    {
+      "_id": "local-1788722997592-904",
+      "createdAt": "2026-11-21T19:45:00.000Z",
+      "updatedAt": "2026-11-21T20:15:00.000Z",
+      "orderNumber": "JHC-75911133",
+      "customer": {
+        "name": "Neha Roy",
+        "company": "The Grand Atrium Hospitality",
+        "phone": "+91 9810198765",
+        "email": "neha@grandatrium.com",
+        "address": {
+          "city": "New Delhi",
+          "state": "Delhi NCR"
+        }
+      },
+      "items": [
+        {
+          "product": null,
+          "productTitle": "Hallway & Staircase Runners",
+          "size": "3x15 ft",
+          "quantity": 8,
+          "pricePerUnit": 3500,
+          "specialInstructions": "Continuous heavy duty corridor weave with anti-skid backing"
+        }
+      ],
+      "totalQuantity": 8,
+      "estimatedTotal": 28000,
+      "status": "In Production",
+      "paymentStatus": "Paid",
+      "adminNotes": "Loom production 60% complete. Scheduled dispatch next Tuesday."
+    }
+  ]
+}

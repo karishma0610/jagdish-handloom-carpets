@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAGDISH HANDLOOM CARPETS — Crafted by Hand, Built to Last</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F8F3EB;
+      --warm: #EDE4D4;
+      --brown: #3B2A1A;
+      --rust:  #A85C38;
+      --gold:  #C49A45;
+      --muted: #8C7B68;
+      --rule:  #DDD4C2;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--cream); color: var(--brown); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 6%;
+      background: rgba(248,243,235,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .logo { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .logo span { display: block; font-size: 0.65rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-family: var(--font-sans); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--brown); }
+    .nav-cta { background: var(--rust); color: #fff; padding: 0.6rem 1.4rem; border-radius: 2px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.5px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to right, rgba(248,243,235,0.97) 50%, rgba(248,243,235,0.5) 100%),
+        url('https://images.unsplash.com/photo-1600166898405-da9535204843?w=1400&q=80') center/cover no-repeat;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10rem 6% 6rem;
+    }
+    .hero-tag { display: inline-block; border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 700; line-height: 1.1; letter-spacing: -1px; max-width: 680px; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero h1 em { font-style: italic; color: var(--rust); }
+    .hero-sub { max-width: 460px; color: var(--muted); font-size: 1rem; line-height: 1.8; font-weight: 300; margin-top: 1.5rem; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; animation: fadeUp 0.7s 0.3s ease both; }
+    .btn-rust { background: var(--rust); color: #fff; padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-rust:hover { background: var(--brown); }
+    .btn-outline { border: 1px solid var(--brown); color: var(--brown); padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.9rem; font-weight: 400; text-decoration: none; display: inline-block; transition: background 0.2s, color 0.2s; }
+    .btn-outline:hover { background: var(--brown); color: #fff; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--brown); color: #fff; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; padding: 2rem 6%; }
+    .trust-num { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--gold); }
+    .trust-label { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+
+    /* SECTIONS */
+    .section { padding: 6rem 6%; }
+    .section-tag { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rust); margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.8; font-weight: 300; max-width: 500px; margin-bottom: 3rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { border-radius: 4px; overflow: hidden; position: relative; }
+    .about-img img { width: 100%; height: 450px; object-fit: cover; display: block; }
+    .about-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--gold); color: var(--brown); width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .about-badge strong { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; line-height: 1; }
+    .about-badge span { font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 0.2rem; }
+    .about-points { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-points li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+    .about-points li::before { content: "✦"; color: var(--gold); font-size: 0.7rem; margin-top: 0.3rem; flex-shrink: 0; }
+
+    /* PRODUCTS */
+    .products-bg { background: var(--warm); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .product-card { background: var(--cream); border-radius: 4px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(59,42,26,0.12); }
+    .product-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .product-info { padding: 1.4rem; }
+    .product-info h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .product-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .product-tag { display: inline-block; margin-top: 0.8rem; background: rgba(168,92,56,0.1); color: var(--rust); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 100px; }
+
+    /* HOW IT WORKS */
+    .hiw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }
+    .hiw-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hiw-num { font-family: var(--font-serif); font-size: 0.8rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .hiw-step h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hiw-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* WHY US */
+    .why-bg { background: var(--brown); color: #fff; }
+    .why-bg .section-title { color: #fff; }
+    .why-bg .section-sub { color: rgba(255,255,255,0.5); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .why-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2rem; transition: border-color 0.2s; }
+    .why-card:hover { border-color: var(--gold); }
+    .why-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .why-card h3 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--gold); }
+    .why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .ci-icon { font-size: 1.4rem; }
+    .contact-item h4 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .contact-item p { font-size: 0.95rem; color: var(--brown); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--brown); font-family: var(--font-sans); font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--rust); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button { background: var(--rust); color: #fff; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+    .contact-form button:hover { background: var(--brown); }
+
+    /* FOOTER */
+    footer { background: #211509; color: rgba(255,255,255,0.4); padding: 2.5rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.8rem; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-img { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">Al-Noor Carpets<span>Handloom · Est. 2005</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Enquire Now</a>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-tag">✦ Handloom · Handcrafted · Wholesale</span>
+    <h1>Carpets Woven<br>with <em>Heritage</em><br>& Craft</h1>
+    <p class="hero-sub">We are a family-run handloom carpet manufacturer supplying premium quality rugs and carpets to wholesalers and dealers across India.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-rust">View Our Carpets</a>
+      <a href="#contact" class="btn-outline">Get a Quote</a>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-num">20+</div><div class="trust-label">Years of Craft</div></div>
+    <div class="trust-item"><div class="trust-num">30000+</div><div class="trust-label">Carpets Delivered</div></div>
+    <div class="trust-item"><div class="trust-num">100%</div><div class="trust-label">Handloom Made</div></div>
+    <div class="trust-item"><div class="trust-num">B2B</div><div class="trust-label">Wholesale Supply</div></div>
+  </div>
+
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80" alt="Handloom weaving"/>
+        <div class="about-badge"><strong>20+</strong><span>Years of Craft</span></div>
+      </div>
+      <div class="about-text">
+        <p class="section-tag">Our Story</p>
+        <h2 class="section-title">A Family Legacy<br>in Every Thread</h2>
+        <p class="section-sub">Based in Panipat (Haryana), our family has been crafting handloom carpets for over two decades. We work as a trusted third-party manufacturer, supplying finished carpets to wholesalers and upper-party dealers.</p>
+        <ul class="about-points">
+          <li>All carpets are 100% handwoven on traditional looms by skilled weavers</li>
+          <li>We supply in bulk to wholesalers, dealers, and upper-party buyers</li>
+          <li>Custom sizes, patterns, and colour combinations available on order</li>
+          <li>Competitive pricing with reliable delivery timelines</li>
+          <li>Quality checked at every stage before dispatch</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section products-bg" id="products">
+    <p class="section-tag">What We Make</p>
+    <h2 class="section-title">Our Carpet Range</h2>
+    <p class="section-sub">From traditional to contemporary — all made by hand, available for wholesale supply.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1575414003994-0e28de775d5a?w=600&q=80" alt="Traditional carpet"/>
+        <div class="product-info"><h3>Traditional Wool Carpets</h3><p>Classic motifs, rich colours, and durable wool — perfect for traditional home décor markets.</p><span class="product-tag">Wholesale Available</span></div>
+      </div>
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&q=80" alt="Flatweave rug"/>
+        <div class="product-info"><h3>Flatweave Dhurrie Rugs</h3><p>Lightweight, reversible, and durable. A bestseller in modern and minimalist interior markets.</p><span class="product-tag">Custom Sizes</span></div>
+      </div>
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1616627988890-0a879f77c5e2?w=600&q=80" alt="Custom carpet"/>
+        <div class="product-info"><h3>Custom Order Carpets</h3><p>Specific size, pattern, or colour? We accept custom bulk orders and deliver to specification.</p><span class="product-tag">Bulk Orders</span></div>
+      </div>
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80" alt="Prayer mat"/>
+        <div class="product-info"><h3>Prayer Mats & Small Rugs</h3><p>Handwoven prayer mats and small decorative rugs — popular across domestic and export markets.</p><span class="product-tag">High Demand</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <p class="section-tag">Our Process</p>
+    <h2 class="section-title">How We Work</h2>
+    <p class="section-sub">Simple, transparent, and reliable — from your order to delivery.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step"><div class="hiw-icon">📋</div><div class="hiw-num">Step 01</div><h3>You Place an Order</h3><p>Contact us with your required quantity, size, design, and material.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">🎨</div><div class="hiw-num">Step 02</div><h3>Design & Sample</h3><p>We prepare a sample or confirm the design pattern before full production.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">🪡</div><div class="hiw-num">Step 03</div><h3>Handloom Production</h3><p>Our weavers craft each carpet on traditional looms with full attention to quality.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">✅</div><div class="hiw-num">Step 04</div><h3>Quality Check & Dispatch</h3><p>Every piece is inspected, packed carefully, and dispatched on the agreed timeline.</p></div>
+    </div>
+  </section>
+
+  <section class="section why-bg">
+    <p class="section-tag" style="color:var(--gold);">Why Choose Us</p>
+    <h2 class="section-title">What Makes Us Different</h2>
+    <p class="section-sub">We're not a showroom. We're the makers — better quality, better pricing, direct communication.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="icon">🤝</div><h3>Direct from the Maker</h3><p>No middlemen. You deal directly with us — better prices and faster decisions.</p></div>
+      <div class="why-card"><div class="icon">🪡</div><h3>100% Handloom</h3><p>Every carpet is woven by hand on traditional looms — no machine shortcuts, ever.</p></div>
+      <div class="why-card"><div class="icon">📦</div><h3>Reliable Bulk Supply</h3><p>We fulfil consistent wholesale orders on time, every time.</p></div>
+      <div class="why-card"><div class="icon">🎨</div><h3>Custom Made</h3><p>Need a specific size, colour, or design? We produce to your exact requirements.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact-grid">
+      <div>
+        <p class="section-tag">Get in Touch</p>
+        <h2 class="section-title">Ready to Place<br>an Order?</h2>
+        <p class="section-sub">We welcome inquiries from wholesalers, dealers, and buyers. Tell us what you need and we'll get back to you quickly.</p>
+        <div class="contact-info">
+          <div class="contact-item"><span class="ci-icon">📍</span><div><h4>Location & Works</h4><p>Near Navyug Public School, Batra Colony, Ward No. 2, Panipat, Haryana, India</p></div></div>
+          <div class="contact-item"><span class="ci-icon">📞</span><div><h4>Phone / WhatsApp</h4><p>+91 9253730103</p></div></div>
+          <div class="contact-item"><span class="ci-icon">✉️</span><div><h4>Email</h4><p>jagdishandloom.carpets@email.com</p></div></div>
+          <div class="contact-item"><span class="ci-icon">🕐</span><div><h4>Working Hours</h4><p>Mon – Fri, 9am – 6pm</p></div></div>
+        </div>
+
+        <div class="map-container" style="margin-top: 1.8rem; border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); box-shadow: 0 6px 20px rgba(59,42,26,0.08);">
+          <div style="background: var(--warm); padding: 8px 14px; font-size: 0.78rem; font-weight: 500; color: var(--brown); display: flex; justify-content: space-between; align-items: center;">
+            <span>📍 Near Navyug Public School, Batra Colony</span>
+            <a href="https://maps.google.com/?q=Navyug+Public+School+Batra+Colony+Panipat+Haryana" target="_blank" style="color: var(--rust); text-decoration: none; font-size: 0.75rem; font-weight: 600;">Open Maps ↗</a>
+          </div>
+          <iframe
+            title="Jagdish Handloom Carpets Factory Location"
+            src="https://maps.google.com/maps?q=Navyug+Public+School+Batra+Colony+Panipat+Haryana&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="240"
+            style="border:0; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name"/>
+          <input type="text" placeholder="Company / Business Name"/>
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone / WhatsApp"/>
+          <input type="email" placeholder="Email Address"/>
+        </div>
+        <select>
+          <option value="">— What are you looking for? —</option>
+          <option>Traditional Wool Carpets</option>
+          <option>Flatweave Dhurrie Rugs</option>
+          <option>Custom Order Carpets</option>
+          <option>Prayer Mats & Small Rugs</option>
+          <option>General Wholesale Inquiry</option>
+        </select>
+        <input type="text" placeholder="Approx. Quantity Needed"/>
+        <textarea placeholder="Tell us more — size, colour, pattern, delivery location..."></textarea>
+        <button type="button">Send Enquiry →</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" style="font-family:'Playfair Display',serif; color:#C49A45; text-decoration:none; font-size:1.1rem;">
+      JAGDISH HANDLOOM Carpets
+      <span style="display:block; font-size:0.65rem; font-family:'Jost',sans-serif; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3);">Handloom Manufacturer · Haryana</span>
+    </a>
+    <p>© 2026 JAGDISH Handloom Carpets. All rights reserved.</p>
+    <div>
+      <a href="/admin" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:0.75rem; border:1px solid rgba(255,255,255,0.2); padding:4px 10px; border-radius:3px;">Admin Portal 🔒</a>
+    </div>
+  </footer>
+
+  <script src="/client.js"></script>
+</body>
+</html>

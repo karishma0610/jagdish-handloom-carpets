@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAGDISH HANDLOOM CARPETS — Crafted by Hand, Built to Last</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF7F2;
+      --warm: #EDE4D4;
+      --brown: #1A1209;
+      --rust:  #B84A28;
+      --gold:  #C49A45;
+      --gold-bright: #F7D26D;
+      --muted: #38291B;
+      --rule:  #DDD4C2;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--cream); color: var(--brown); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 6%;
+      background: rgba(248,243,235,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 3px 10px rgba(59,42,26,0.18);
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .logo-brand:hover .brand-logo-img {
+      transform: scale(1.05);
+      box-shadow: 0 5px 16px rgba(196,154,69,0.35);
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: #1A1209;
+      line-height: 1.15;
+      letter-spacing: 0.5px;
+    }
+    .brand-subtitle {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8F5B1A;
+      margin-top: 3px;
+      font-family: var(--font-sans);
+    }
+    .logo { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .logo span { display: block; font-size: 0.65rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-family: var(--font-sans); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: #22160C; text-decoration: none; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rust); }
+
+    /* DROPDOWN MENU */
+    .nav-item-dropdown { position: relative; }
+    .dropdown-trigger { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+    .dropdown-arrow { font-size: 0.65rem; transition: transform 0.25s ease; color: var(--gold); }
+    .nav-item-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 10px); left: 0; min-width: 250px;
+      background: #ffffff; border: 1px solid var(--rule); border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(59,42,26,0.14); padding: 0.5rem 0;
+      list-style: none; opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 200;
+    }
+    .dropdown-menu::before {
+      content: ""; position: absolute; top: -6px; left: 24px; width: 10px; height: 10px;
+      background: #fff; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule);
+      transform: rotate(45deg);
+    }
+    .nav-item-dropdown:hover .dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .dropdown-menu li { list-style: none; }
+    .dropdown-menu li a {
+      display: block; padding: 0.65rem 1.4rem; font-size: 0.88rem; color: #1A1209;
+      font-weight: 500; text-decoration: none; transition: all 0.2s; border-left: 3px solid transparent;
+    }
+    .dropdown-menu li a:hover {
+      background: #FAF4EB; color: var(--rust); border-left-color: var(--rust); padding-left: 1.65rem;
+    }
+    .dropdown-menu li:not(:last-child) { border-bottom: 1px solid rgba(221,212,194,0.4); }
+
+    /* SIZE DROPDOWN (Matches user screenshot 1 carpetroom.in) */
+    .size-dropdown-menu {
+      min-width: 210px;
+      max-height: 430px;
+      overflow-y: auto;
+      border-radius: 12px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(221, 212, 194, 0.8);
+      padding: 0.5rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--rust) #FAF7F2;
+    }
+    .size-dropdown-menu::-webkit-scrollbar {
+      width: 5px;
+    }
+    .size-dropdown-menu::-webkit-scrollbar-track {
+      background: #FAF7F2;
+      border-radius: 10px;
+    }
+    .size-dropdown-menu::-webkit-scrollbar-thumb {
+      background: var(--rust);
+      border-radius: 10px;
+    }
+    .size-dropdown-menu li a {
+      text-align: center;
+      padding: 0.52rem 1.4rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #1A1209;
+      border-left: none;
+      transition: all 0.18s ease;
+    }
+    .size-dropdown-menu li a:hover {
+      background: #FAF4EB;
+      color: var(--rust);
+      font-weight: 600;
+      padding-left: 1.4rem;
+      border-left: none;
+    }
+    .custom-size-dropdown-item {
+      background: #FFF9F3;
+      border-top: 1.5px dashed rgba(184, 74, 40, 0.4) !important;
+      margin-top: 4px;
+    }
+    .custom-size-dropdown-item a {
+      color: var(--rust) !important;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+    }
+    .custom-size-dropdown-item a:hover {
+      background: var(--rust) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* SERVICES DROPDOWN (Matches user screenshot 2 carpetroom.in) */
+    .services-dropdown-menu {
+      min-width: 190px;
+      border-radius: 12px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(221, 212, 194, 0.8);
+      padding: 0.5rem 0;
+    }
+    .services-dropdown-menu li a {
+      text-align: center;
+      padding: 0.8rem 1.4rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #1A1209;
+      border-left: none;
+      transition: all 0.18s ease;
+    }
+    .services-dropdown-menu li a:hover {
+      background: #FAF4EB;
+      color: var(--rust);
+      font-weight: 600;
+      padding-left: 1.4rem;
+      border-left: none;
+    }
+    .services-dropdown-menu li:not(:last-child) {
+      border-bottom: 1px solid rgba(221, 212, 194, 0.4);
+    }
+
+    /* CATEGORY FILTER TABS */
+    .category-filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .cat-pill {
+      background: var(--cream); border: 1px solid var(--rule); color: var(--brown);
+      padding: 0.5rem 1.15rem; border-radius: 50px; font-size: 0.82rem; font-weight: 500;
+      cursor: pointer; transition: all 0.2s ease; font-family: var(--font-sans);
+    }
+    .cat-pill:hover { border-color: var(--rust); color: var(--rust); }
+    .cat-pill.active {
+      background: var(--rust); color: #fff; border-color: var(--rust);
+      box-shadow: 0 4px 12px rgba(168,92,56,0.25);
+    }
+
+    /* FAQ SECTION */
+    .faq-section { background: #FAF5ED; border-top: 1px solid var(--rule); }
+    .faq-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 860px; margin: 0 auto; }
+    .faq-item {
+      background: #ffffff; border: 1px solid var(--rule); border-radius: 4px;
+      overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .faq-item:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(59,42,26,0.06); }
+    .faq-question {
+      padding: 1.25rem 1.6rem; display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer; user-select: none;
+      font-family: var(--font-serif); font-size: 1.08rem; font-weight: 600; color: var(--brown);
+    }
+    .faq-icon {
+      font-size: 1.3rem; color: var(--rust); font-weight: 300; line-height: 1;
+      transition: transform 0.3s ease; display: inline-block;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--brown); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.6rem; color: #26180C; font-size: 0.95rem; line-height: 1.8; font-weight: 400;
+      background: #FCFAF6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 250px; padding: 0.2rem 1.6rem 1.4rem; border-top: 1px dashed var(--rule);
+    }
+
+    .nav-actions { display: flex; gap: 1rem; align-items: center; }
+    .nav-admin { color: var(--gold); text-decoration: none; font-size: 0.8rem; border: 1px solid var(--gold); padding: 0.4rem 0.8rem; border-radius: 2px; transition: all 0.2s; }
+    .nav-admin:hover { background: var(--gold); color: var(--brown); }
+    .nav-cta { background: var(--rust); color: #fff; padding: 0.6rem 1.4rem; border-radius: 2px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.5px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to right, rgba(250,247,242,0.98) 45%, rgba(250,247,242,0.85) 100%),
+        url('carpet4.jpg') center/cover no-repeat;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10rem 6% 6rem;
+    }
+    .hero-tag { display: inline-block; background: #FFFFFF; border: 1.5px solid var(--rust); color: var(--rust); font-size: 0.76rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.8rem; box-shadow: 0 4px 12px rgba(184,74,40,0.12); animation: fadeUp 0.7s ease both; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 700; line-height: 1.1; letter-spacing: -1px; max-width: 680px; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero h1 em { font-style: italic; color: var(--rust); }
+    .hero-sub { max-width: 480px; color: #2D1F13; font-size: 1.05rem; line-height: 1.8; font-weight: 400; margin-top: 1.5rem; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; animation: fadeUp 0.7s 0.3s ease both; }
+    .btn-rust { background: var(--rust); color: #fff; padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-block; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-rust:hover { background: var(--brown); }
+    .btn-outline { border: 2px solid #1A1209; color: #1A1209; padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.2s, color 0.2s; }
+    .btn-outline:hover { background: var(--brown); color: #fff; }
+
+    /* TRUST BAR */
+    .trust-bar { background: #1A1108; color: #fff; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; padding: 2rem 6%; }
+    .trust-num { font-family: var(--font-serif); font-size: 2.3rem; font-weight: 700; color: #F7D26D; text-shadow: 0 2px 10px rgba(247,210,109,0.3); }
+    .trust-label { font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; color: #FFFFFF; opacity: 0.95; font-weight: 500; margin-top: 0.2rem; }
+
+    /* SECTIONS */
+    .section { padding: 6rem 6%; }
+    .section-tag { font-size: 0.75rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rust); font-weight: 700; margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .section-sub { color: #38291B; font-size: 1rem; line-height: 1.75; font-weight: 400; max-width: 540px; margin-bottom: 2.8rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img-showcase {
+      position: relative;
+      width: 100%;
+      height: 540px;
+    }
+    .about-main-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 76%;
+      height: 76%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(59,42,26,0.18);
+      border: 3px solid #FAF7F2;
+      transition: transform 0.35s ease, z-index 0.2s;
+    }
+    .about-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-main-img:hover {
+      transform: scale(1.02);
+      z-index: 4;
+    }
+    .about-sub-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 64%;
+      height: 58%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(59,42,26,0.22);
+      border: 4px solid #FAF7F2;
+      z-index: 2;
+      transition: transform 0.35s ease;
+    }
+    .about-sub-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-sub-img:hover {
+      transform: scale(1.03);
+      z-index: 4;
+    }
+    .about-img-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      background: rgba(26,18,9,0.85);
+      backdrop-filter: blur(4px);
+      color: #FAF7F2;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .about-badge {
+      position: absolute;
+      top: 36%;
+      left: 62%;
+      transform: translate(-50%, -50%);
+      background: var(--gold);
+      color: #1A1209;
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 4px solid #FAF7F2;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+      z-index: 3;
+      transition: transform 0.3s ease;
+    }
+    .about-badge:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+    .about-badge strong { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; line-height: 1; }
+    .about-badge span { font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 0.2rem; font-weight: 600; }
+    .about-points { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-points li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: 0.95rem; color: #261A10; font-weight: 400; line-height: 1.65; }
+    .about-points li::before { content: "✦"; color: var(--gold); font-size: 0.7rem; margin-top: 0.3rem; flex-shrink: 0; }
+
+    /* LEADERSHIP CARDS */
+    .leadership-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+      margin: 1.8rem 0 1.4rem;
+    }
+    @media (max-width: 600px) {
+      .leadership-cards { grid-template-columns: 1fr; }
+    }
+    .leader-card {
+      background: #FFFFFF;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.25rem 1.15rem;
+      border-left: 3.5px solid var(--gold);
+      box-shadow: 0 4px 14px rgba(59,42,26,0.05);
+      transition: all 0.25s ease;
+    }
+    .leader-card:hover {
+      border-left-color: var(--rust);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59,42,26,0.08);
+    }
+    .leader-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--rust);
+      background: rgba(168,92,56,0.1);
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-bottom: 0.45rem;
+    }
+    .leader-name {
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    .leader-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #9E6B08;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .leader-bio {
+      font-size: 0.86rem;
+      color: #2D1E12;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* PRODUCTS */
+    .products-bg { background: var(--warm); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+      justify-content: start;
+    }
+    .product-card {
+      background: var(--cream);
+      border-radius: 6px;
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(59,42,26,0.04);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(59,42,26,0.12);
+      border-color: var(--gold);
+    }
+    .product-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #E8DFC8;
+      cursor: pointer;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+    .product-img-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(36,25,15,0.8);
+      color: #F8F3EB;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 100px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.15);
+      z-index: 2;
+    }
+    .product-zoom-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(248,243,235,0.95);
+      color: var(--brown);
+      border: 1px solid var(--rule);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      opacity: 0.9;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+    .product-card:hover .product-zoom-hint {
+      opacity: 1;
+      background: var(--rust);
+      color: #fff;
+      border-color: var(--rust);
+      transform: scale(1.03);
+    }
+    .product-info {
+      padding: 1.3rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 0.4rem;
+    }
+    .product-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--brown);
+    }
+    .product-desc {
+      font-size: 0.88rem;
+      color: #332416;
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
+      font-weight: 400;
+      flex: 1;
+    }
+    .product-specs {
+      background: rgba(237,228,212,0.45);
+      border: 1px solid rgba(221,212,194,0.7);
+      border-radius: 4px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .spec-row {
+      display: flex;
+      align-items: baseline;
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+    .spec-label {
+      font-weight: 700;
+      color: #1A1209;
+      min-width: 68px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+    }
+    .spec-val {
+      color: #26190F;
+      font-weight: 500;
+    }
+    .spec-val.price {
+      color: var(--rust);
+      font-weight: 700;
+    }
+    .product-card-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: auto;
+    }
+    .btn-view-full {
+      flex: 1;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--brown);
+      padding: 7px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .btn-view-full:hover {
+      background: #EDE4D4;
+      border-color: var(--brown);
+    }
+    .btn-order-quote {
+      flex: 1.3;
+      background: var(--rust);
+      color: #fff;
+      border: none;
+      padding: 7px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .btn-order-quote:hover {
+      background: var(--brown);
+    }
+    .product-tag { display: inline-block; background: rgba(168,92,56,0.1); color: var(--rust); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 100px; }
+
+    /* CARPET FULL PREVIEW LIGHTBOX */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 19, 11, 0.88);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      background: var(--cream);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      max-width: 920px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-header {
+      padding: 1.1rem 1.6rem;
+      background: var(--brown);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .lightbox-title-wrap h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--gold);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .lightbox-title-wrap span {
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(248,243,235,0.7);
+    }
+    .lightbox-close {
+      background: none;
+      border: none;
+      color: var(--warm);
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #fff;
+    }
+    .lightbox-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      overflow-y: auto;
+      max-height: calc(90vh - 75px);
+    }
+    @media (max-width: 760px) {
+      .lightbox-body {
+        grid-template-columns: 1fr;
+      }
+    }
+    .lightbox-img-area {
+      background: #1f160e;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+    .lightbox-img-area img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .lightbox-details {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .lightbox-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .lightbox-specs-table {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: #FAF5ED;
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+      font-size: 0.82rem;
+    }
+    .lightbox-spec-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .lightbox-spec-item strong {
+      color: var(--brown);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .lightbox-actions {
+      margin-top: auto;
+      padding-top: 1rem;
+      display: flex;
+      gap: 10px;
+    }
+
+    /* HOW IT WORKS */
+    .hiw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }
+    .hiw-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hiw-num { font-family: var(--font-serif); font-size: 0.85rem; color: var(--rust); font-weight: 700; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .hiw-step h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hiw-step p { font-size: 0.88rem; color: #332416; line-height: 1.7; font-weight: 400; }
+
+    /* WHY US */
+    .why-bg { background: #1A1108; color: #fff; }
+    .why-bg .section-title { color: #fff; }
+    .why-bg .section-sub { color: rgba(255,255,255,0.92); font-weight: 400; font-size: 1rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .why-card { border: 1px solid rgba(247,210,109,0.25); background: rgba(255,255,255,0.03); border-radius: 4px; padding: 2rem; transition: border-color 0.2s; }
+    .why-card:hover { border-color: var(--gold); }
+    .why-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .why-card h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #F7D26D; }
+    .why-card p { font-size: 0.9rem; color: rgba(255,255,255,0.88); line-height: 1.7; font-weight: 400; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .ci-icon { font-size: 1.4rem; }
+    .contact-item h4 { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: #8F5B1A; font-weight: 700; margin-bottom: 0.3rem; }
+    .contact-item p { font-size: 1rem; color: #1A1209; font-weight: 600; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid #CFC4AD; border-radius: 3px; background: #fff; color: #1A1209; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 500; outline: none; transition: border-color 0.2s; }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--rust); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button { background: var(--rust); color: #fff; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+    .contact-form button:hover { background: var(--brown); }
+
+    /* FOOTER */
+    footer { background: #140C04; color: rgba(255,255,255,0.85); padding: 2.5rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .footer-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #F7D26D;
+      line-height: 1.15;
+    }
+    .footer-subtitle {
+      font-size: 0.65rem;
+      font-family: var(--font-sans);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-top: 3px;
+    }
+    footer p { font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 400; }
+    .footer-links { display: flex; gap: 1rem; align-items: center; }
+    .footer-admin-link { color: #F7D26D; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1.5px solid rgba(247,210,109,0.5); padding: 5px 14px; border-radius: 3px; }
+    .footer-admin-link:hover { background: var(--gold); color: var(--brown); }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .whatsapp-float:hover {
+      background: #20BA5A;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* MOBILE NAVIGATION */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--brown);
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE & DEVICE PORTABILITY (MOBILE, TABLET, LAPTOP, PC) */
+    @media (max-width: 1040px) {
+      .mobile-menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        padding: 1.5rem 6%;
+        gap: 1.1rem;
+        border-bottom: 1px solid var(--rule);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .nav-links.active { display: flex; }
+      .nav-actions { display: none; }
+      .nav-links .mobile-nav-action { display: block; }
+      .nav-item-dropdown { width: 100%; }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid var(--gold);
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        padding-left: 0.8rem;
+        margin-top: 0.5rem;
+      }
+      .dropdown-menu::before { display: none; }
+      .nav-item-dropdown.mobile-open .dropdown-menu { display: block; }
+            .about-grid { gap: 3rem; }
+    }
+
+    @media (min-width: 1041px) {
+      .mobile-nav-action { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.9rem 5%; }
+      .brand-logo-img { width: 40px; height: 40px; }
+      .brand-title { font-size: 1.1rem; }
+      .brand-subtitle { font-size: 0.58rem; letter-spacing: 1.8px; }
+      .hero { padding: 7.5rem 5% 4.5rem; min-height: auto; }
+      .hero h1 { font-size: clamp(2.3rem, 7vw, 3.8rem); }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-showcase { height: 380px; margin-bottom: 2rem; }
+      .about-main-img { width: 78%; height: 75%; }
+      .about-sub-img { width: 62%; height: 56%; }
+      .about-badge { width: 90px; height: 90px; top: 38%; left: 64%; }
+      .about-badge strong { font-size: 1.4rem; }
+      .about-badge span { font-size: 0.55rem; }
+      .trust-bar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; padding: 1.8rem 5%; text-align: center; }
+      .section { padding: 4.5rem 5%; }
+            .form-row { grid-template-columns: 1fr; }
+      .whatsapp-float { bottom: 18px; right: 18px; padding: 10px 15px; font-size: 0.82rem; }
+      .whatsapp-icon { width: 20px; height: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0.8rem 4%; }
+      .brand-logo-img { width: 36px; height: 36px; }
+      .brand-title { font-size: 0.98rem; }
+      .brand-subtitle { font-size: 0.52rem; letter-spacing: 1.2px; }
+      .hero { padding: 6.5rem 4% 3.5rem; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions a { text-align: center; width: 100%; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.4rem 4%; }
+      .trust-num { font-size: 1.75rem; }
+      .trust-label { font-size: 0.65rem; }
+      .section { padding: 3.5rem 4%; }
+      .about-img-showcase { height: 320px; }
+      .about-badge { width: 78px; height: 78px; }
+      .about-badge strong { font-size: 1.2rem; }
+      .about-badge span { font-size: 0.5rem; }
+      .leadership-cards { grid-template-columns: 1fr; }
+      .category-filter-bar { gap: 0.4rem; }
+      .cat-pill { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="logo-brand">
+      <img src="logo.jpg" alt="Jagdish Handloom Logo" class="brand-logo-img" />
+      <div class="logo-text">
+        <span class="brand-title">JAGDISH HANDLOOM</span>
+        <span class="brand-subtitle">Handloom Manufacturer · Est. 1995</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="main-nav-links">
+      <li><a href="#about" onclick="closeMobileNav()">About</a></li>
+      
+      <!-- CARPET TYPES DROPDOWN -->
+      <li class="nav-item-dropdown" id="carpet-dropdown">
+        <a href="#products" class="dropdown-trigger" onclick="toggleMobileDropdown(event)">
+          Carpet Types <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#products" onclick="filterCarpetCategory('all'); closeMobileNav();">✦ All Collections (5)</a></li>
+          <li><a href="#products" onclick="filterCarpetCategory('traditional'); closeMobileNav();">Traditional Wool</a></li>
+          <li><a href="#products" onclick="filterCarpetCategory('dhurrie'); closeMobileNav();">Flatweave Dhurrie</a></li>
+          <li><a href="#products" onclick="filterCarpetCategory('jacquard'); closeMobileNav();">Jacquard & Chenille</a></li>
+          <li><a href="#products" onclick="filterCarpetCategory('tufted'); closeMobileNav();">Hand-Tufted Plush</a></li>
+          <li><a href="#products" onclick="filterCarpetCategory('prayer'); closeMobileNav();">Prayer Mats & Small Rugs</a></li>
+        </ul>
+      </li>
+
+      <!-- SHOP BY SIZE DROPDOWN (Matches user screenshot 1 carpetroom.in) -->
+      <li class="nav-item-dropdown" id="size-dropdown">
+        <a href="#products" class="dropdown-trigger" onclick="toggleMobileDropdown(event)">
+          Shop By Size <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown-menu size-dropdown-menu">
+          <li><a href="#products" onclick="selectCarpetSize('2x6 Feet'); closeMobileNav();">2x6 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('3x5 Feet'); closeMobileNav();">3x5 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('4x6 Feet'); closeMobileNav();">4x6 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('5x7 Feet'); closeMobileNav();">5x7 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('5x8 Feet'); closeMobileNav();">5x8 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('6x8 Feet'); closeMobileNav();">6x8 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('6x9 Feet'); closeMobileNav();">6x9 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('7x10 Feet'); closeMobileNav();">7x10 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('8x10 Feet'); closeMobileNav();">8x10 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('8x11 Feet'); closeMobileNav();">8x11 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('9x12 Feet'); closeMobileNav();">9x12 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('10x12 Feet'); closeMobileNav();">10x12 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('10x13 Feet'); closeMobileNav();">10x13 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('10x14 Feet'); closeMobileNav();">10x14 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('12x15 Feet'); closeMobileNav();">12x15 Feet</a></li>
+          <li><a href="#products" onclick="selectCarpetSize('12x18 Feet'); closeMobileNav();">12x18 Feet</a></li>
+          <li class="custom-size-dropdown-item">
+            <a href="#contact" onclick="openCustomSizeModal(); closeMobileNav();">
+              ✦ Custom Size (Any Dimension)
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- SERVICES DROPDOWN (Matches user screenshot 2 carpetroom.in) -->
+      <li class="nav-item-dropdown" id="services-dropdown">
+        <a href="#contact" class="dropdown-trigger" onclick="toggleMobileDropdown(event)">
+          Services <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown-menu services-dropdown-menu">
+          <li><a href="#contact" onclick="openServicesModal('customisation'); closeMobileNav();">Customisation</a></li>
+          <li><a href="#contact" onclick="openServicesModal('bulk-order'); closeMobileNav();">Bulk Order</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#process" onclick="closeMobileNav()">Process</a></li>
+      <li><a href="#faq" onclick="closeMobileNav()">FAQ</a></li>
+      <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+      <li class="mobile-nav-action"><a href="/admin" class="nav-admin" style="display:inline-block; margin-top:0.4rem;">Admin Portal 🔒</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="/admin" class="nav-admin">Admin Portal 🔒</a>
+      <a href="#contact" class="nav-cta">Enquire Now</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-tag">✦ Handloom · Handcrafted · Wholesale</span>
+    <h1>Carpets Woven<br>with <em>Heritage</em><br>& Craft</h1>
+    <p class="hero-sub">We are a family-run handloom carpet manufacturer supplying premium quality rugs, dhurries, and bespoke carpets to wholesalers, dealers, and project buyers across India.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-rust">View Our Carpets</a>
+      <a href="#contact" class="btn-outline">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- TRUST STATS -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-num">30+</div>
+      <div class="trust-label">Years of Weaving Heritage</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">100%</div>
+      <div class="trust-label">Authentic Handloom</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">500+</div>
+      <div class="trust-label">Wholesale Partners</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">Panipat</div>
+      <div class="trust-label">Haryana Handloom Hub</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-img-showcase">
+        <div class="about-main-img">
+          <img src="about-weaver.jpg" alt="Master Weaver at Traditional Handloom" onerror="this.src='carpet3.jpg'" />
+          <span class="about-img-caption">✦ Master Weaver at Pit Loom</span>
+        </div>
+        <div class="about-sub-img">
+          <img src="about-loom.jpg" alt="Authentic Wooden Handloom Frame Panipat" onerror="this.src='carpet1.jpg'" />
+          <span class="about-img-caption">✦ Handloom Frame &amp; Floral Weave</span>
+        </div>
+        <div class="about-badge">
+          <strong>30+</strong>
+          <span>Years of Craft</span>
+        </div>
+      </div>
+      <div>
+        <p class="section-tag">About Our Looms & Heritage</p>
+        <h2 class="section-title">Rooted in Tradition, Built for Modern Living</h2>
+        <p class="section-sub" style="margin-bottom: 1.4rem;">At Jagdish Handloom Carpets, every piece carries the legacy of generational artisans from Panipat, Haryana — woven with authentic pit & frame looms, uncompromised natural fibres, and meticulous hand-knotting.</p>
+
+        <!-- LEADERSHIP SPOTLIGHT -->
+        <div class="leadership-cards">
+          <div class="leader-card">
+            <span class="leader-badge">Founder & Master Artisan</span>
+            <h3 class="leader-name">Mr. Jagdish Chaurasiya</h3>
+            <div class="leader-title">Owner & Master Craftsman</div>
+            <p class="leader-bio">With over 30 years of generational mastery at authentic handlooms, Mr. Jagdish Chaurasiya established the manufacturing foundation in Panipat, Haryana. His exacting standards in raw yarn curation, knot density, and warp-weft alignment preserve timeless Indian handloom artistry.</p>
+          </div>
+
+          <div class="leader-card">
+            <span class="leader-badge">Operations & Expansion</span>
+            <h3 class="leader-name">Vindhayachal Chaurasiya</h3>
+            <div class="leader-title">Son & Operations Director</div>
+            <p class="leader-bio">Spearheading modern operations and nationwide distribution, Vindhayachal Chaurasiya oversees bespoke wholesale orders, custom interior projects, export-grade quality assurance, and seamless client partnerships across India.</p>
+          </div>
+        </div>
+
+        <ul class="about-points">
+          <li><strong>Direct Manufacturer Pricing:</strong> Deal directly with weavers — no intermediaries, no inflated margins.</li>
+          <li><strong>Bespoke Customization:</strong> Tailored patterns, bespoke dimensions, yarn choices, and private label packaging.</li>
+          <li><strong>Rigorous Quality Control:</strong> Each carpet undergoes knot density, colourfastness, and finishing inspections.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS CATALOG -->
+  <section class="section products-bg" id="products">
+    <p class="section-tag">What We Make</p>
+    <h2 class="section-title">Our Carpet Range</h2>
+    <p class="section-sub">From traditional oriental designs to flatweave dhurrie rugs and textured jacquards — all made on authentic handlooms, ready for wholesale delivery.</p>
+
+    <!-- CATEGORY FILTER TABS -->
+    <div class="category-filter-bar">
+      <button class="cat-pill active" data-filter="all" onclick="filterCarpetCategory('all', this)">✦ All Collections (5)</button>
+      <button class="cat-pill" data-filter="traditional" onclick="filterCarpetCategory('traditional', this)">Traditional Wool</button>
+      <button class="cat-pill" data-filter="dhurrie" onclick="filterCarpetCategory('dhurrie', this)">Flatweave Dhurrie</button>
+      <button class="cat-pill" data-filter="jacquard" onclick="filterCarpetCategory('jacquard', this)">Jacquard & Chenille</button>
+      <button class="cat-pill" data-filter="tufted" onclick="filterCarpetCategory('tufted', this)">Hand-Tufted Plush</button>
+      <button class="cat-pill" data-filter="prayer" onclick="filterCarpetCategory('prayer', this)">Prayer Mats</button>
+    </div>
+
+    <div class="products-grid">
+      <!-- 1. TRADITIONAL WOOL -->
+      <div class="product-card" data-category="traditional">
+        <div class="product-img-wrap" onclick="window.openCarpetLightbox('carpet1.jpg', 'Royal Handloom Wool Carpet', 'Heritage Classic', 'Classic floral & medallion motifs hand-knotted in premium blended wool with natural earth vegetable dyes.', '4×6 · 5×8 · 6×9 · 8×10 · Custom', '100% Handloom Bikaner Wool', '₹4,500 - ₹11,000 / sq.m', 'prod-001')">
+          <span class="product-img-badge">Heritage Classic</span>
+          <img class="product-img" src="carpet1.jpg" alt="Royal Handloom Wool Carpet" onerror="this.src='carpet1.jpg'"/>
+          <span class="product-zoom-hint">🔍 View Full Carpet</span>
+        </div>
+        <div class="product-info">
+          <div class="product-header"><h3>Royal Handloom Wool Carpet</h3></div>
+          <p class="product-desc">Classic floral & medallion motifs hand-knotted in premium blended wool with natural earth vegetable dyes.</p>
+          <div class="product-specs">
+            <div class="spec-row"><span class="spec-label">Sizes:</span><span class="spec-val">4×6 · 5×8 · 6×9 · 8×10 · Custom</span></div>
+            <div class="spec-row"><span class="spec-label">Material:</span><span class="spec-val">100% Handloom Bikaner Wool</span></div>
+            <div class="spec-row"><span class="spec-label">Price:</span><span class="spec-val price">₹4,500 - ₹11,000 / sq.m</span></div>
+          </div>
+          <div class="product-card-actions">
+            <button type="button" class="btn-view-full" onclick="window.openCarpetLightbox('carpet1.jpg', 'Royal Handloom Wool Carpet', 'Heritage Classic', 'Classic floral & medallion motifs hand-knotted in premium blended wool with natural earth vegetable dyes.', '4×6 · 5×8 · 6×9 · 8×10 · Custom', '100% Handloom Bikaner Wool', '₹4,500 - ₹11,000 / sq.m', 'prod-001')">🔍 Full View</button>
+            <button type="button" class="btn-order-quote" onclick="window.openCarpetOrderModal('prod-001', 'Royal Handloom Wool Carpet')">Order / Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. DHURRIE -->
+      <div class="product-card" data-category="dhurrie">
+        <div class="product-img-wrap" onclick="window.openCarpetLightbox('carpet2.jpg', 'Scandinavian Handspun Dhurrie Rug', 'Reversible Flatweave', 'Lightweight, reversible, tightly woven flatweave. High-traffic durability and zero shedding.', '3×5 · 4×6 · 5×8 · 6×9 ft · Custom', 'Combed Cotton & Fine Wool Dhurrie', '₹1,800 - ₹4,200 / sq.m', 'prod-002')">
+          <span class="product-img-badge">Reversible Flatweave</span>
+          <img class="product-img" src="carpet2.jpg" alt="Scandinavian Handspun Dhurrie Rug" onerror="this.src='carpet1.jpg'"/>
+          <span class="product-zoom-hint">🔍 View Full Carpet</span>
+        </div>
+        <div class="product-info">
+          <div class="product-header"><h3>Scandinavian Handspun Dhurrie Rug</h3></div>
+          <p class="product-desc">Lightweight, reversible, tightly woven flatweave. High-traffic durability and zero shedding.</p>
+          <div class="product-specs">
+            <div class="spec-row"><span class="spec-label">Sizes:</span><span class="spec-val">3×5 · 4×6 · 5×8 · 6×9 ft · Custom</span></div>
+            <div class="spec-row"><span class="spec-label">Material:</span><span class="spec-val">Combed Cotton & Fine Wool Dhurrie</span></div>
+            <div class="spec-row"><span class="spec-label">Price:</span><span class="spec-val price">₹1,800 - ₹4,200 / sq.m</span></div>
+          </div>
+          <div class="product-card-actions">
+            <button type="button" class="btn-view-full" onclick="window.openCarpetLightbox('carpet2.jpg', 'Scandinavian Handspun Dhurrie Rug', 'Reversible Flatweave', 'Lightweight, reversible, tightly woven flatweave. High-traffic durability and zero shedding.', '3×5 · 4×6 · 5×8 · 6×9 ft · Custom', 'Combed Cotton & Fine Wool Dhurrie', '₹1,800 - ₹4,200 / sq.m', 'prod-002')">🔍 Full View</button>
+            <button type="button" class="btn-order-quote" onclick="window.openCarpetOrderModal('prod-002', 'Scandinavian Handspun Dhurrie Rug')">Order / Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. JACQUARD & CHENILLE -->
+      <div class="product-card" data-category="jacquard">
+        <div class="product-img-wrap" onclick="window.openCarpetLightbox('carpet3.jpg', 'Imperial Damask Chenille Weave', 'Velvet Relief', 'Raised velvety relief pattern with regal damask motifs. Feather-soft hand feel coupled with heavy wear resistance.', '4×6 · 5×8 · 6×9 · 8×10 ft · Custom', 'Micro-Chenille & Mercerized Cotton', '₹2,400 - ₹5,500 / sq.m', 'prod-003')">
+          <span class="product-img-badge">Velvet Relief</span>
+          <img class="product-img" src="carpet3.jpg" alt="Imperial Damask Chenille Weave" onerror="this.src='carpet1.jpg'"/>
+          <span class="product-zoom-hint">🔍 View Full Carpet</span>
+        </div>
+        <div class="product-info">
+          <div class="product-header"><h3>Imperial Damask Chenille Weave</h3></div>
+          <p class="product-desc">Raised velvety relief pattern with regal damask motifs. Feather-soft hand feel coupled with heavy wear resistance.</p>
+          <div class="product-specs">
+            <div class="spec-row"><span class="spec-label">Sizes:</span><span class="spec-val">4×6 · 5×8 · 6×9 · 8×10 ft · Custom</span></div>
+            <div class="spec-row"><span class="spec-label">Material:</span><span class="spec-val">Micro-Chenille & Mercerized Cotton</span></div>
+            <div class="spec-row"><span class="spec-label">Price:</span><span class="spec-val price">₹2,400 - ₹5,500 / sq.m</span></div>
+          </div>
+          <div class="product-card-actions">
+            <button type="button" class="btn-view-full" onclick="window.openCarpetLightbox('carpet3.jpg', 'Imperial Damask Chenille Weave', 'Velvet Relief', 'Raised velvety relief pattern with regal damask motifs. Feather-soft hand feel coupled with heavy wear resistance.', '4×6 · 5×8 · 6×9 · 8×10 ft · Custom', 'Micro-Chenille & Mercerized Cotton', '₹2,400 - ₹5,500 / sq.m', 'prod-003')">🔍 Full View</button>
+            <button type="button" class="btn-order-quote" onclick="window.openCarpetOrderModal('prod-003', 'Imperial Damask Chenille Weave')">Order / Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. HAND-TUFTED & CUT-PILE -->
+      <div class="product-card" data-category="tufted">
+        <div class="product-img-wrap" onclick="window.openCarpetLightbox('carpet4.jpg', 'Plush Cut-Pile Hand-Tufted Rug', 'Hotel Grade', 'Dense cut-pile cushioning engineered for luxury living spaces and hotels. Non-slip natural latex backing.', '5×8 · 6×9 · 8×10 · 9×12 ft · Custom', 'New Zealand Wool & Indian Blends', '₹3,600 - ₹8,500 / sq.m', 'prod-004')">
+          <span class="product-img-badge">Hotel Grade</span>
+          <img class="product-img" src="carpet4.jpg" alt="Plush Cut-Pile Hand-Tufted Rug" onerror="this.src='carpet1.jpg'"/>
+          <span class="product-zoom-hint">🔍 View Full Carpet</span>
+        </div>
+        <div class="product-info">
+          <div class="product-header"><h3>Plush Cut-Pile Hand-Tufted Rug</h3></div>
+          <p class="product-desc">Dense cut-pile cushioning engineered for luxury living spaces and hotels. Non-slip natural latex backing.</p>
+          <div class="product-specs">
+            <div class="spec-row"><span class="spec-label">Sizes:</span><span class="spec-val">5×8 · 6×9 · 8×10 · 9×12 ft · Custom</span></div>
+            <div class="spec-row"><span class="spec-label">Material:</span><span class="spec-val">New Zealand Wool & Indian Blends</span></div>
+            <div class="spec-row"><span class="spec-label">Price:</span><span class="spec-val price">₹3,600 - ₹8,500 / sq.m</span></div>
+          </div>
+          <div class="product-card-actions">
+            <button type="button" class="btn-view-full" onclick="window.openCarpetLightbox('carpet4.jpg', 'Plush Cut-Pile Hand-Tufted Rug', 'Hotel Grade', 'Dense cut-pile cushioning engineered for luxury living spaces and hotels. Non-slip natural latex backing.', '5×8 · 6×9 · 8×10 · 9×12 ft · Custom', 'New Zealand Wool & Indian Blends', '₹3,600 - ₹8,500 / sq.m', 'prod-004')">🔍 Full View</button>
+            <button type="button" class="btn-order-quote" onclick="window.openCarpetOrderModal('prod-004', 'Plush Cut-Pile Hand-Tufted Rug')">Order / Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. PRAYER MATS & SMALL RUGS -->
+      <div class="product-card" data-category="prayer">
+        <div class="product-img-wrap" onclick="window.openCarpetLightbox('carpet5.jpg', 'Handloom Prayer Mat & Small Accent Rug', 'Cushioned Janamaz', 'Traditional arched prayer rug with soft touch foundation, easily rollable for personal use or prayer rooms.', '2×3.5 ft (60×105 cm) &bull; Custom Sets', 'High-Density Velvet Microfiber & Cotton', '₹650 - ₹1,800 / piece', 'prod-005')">
+          <span class="product-img-badge">Cushioned Janamaz</span>
+          <img class="product-img" src="carpet5.jpg" alt="Handloom Prayer Mat & Small Accent Rug" onerror="this.src='carpet1.jpg'"/>
+          <span class="product-zoom-hint">🔍 View Full Carpet</span>
+        </div>
+        <div class="product-info">
+          <div class="product-header"><h3>Handloom Prayer Mat & Small Accent Rug</h3></div>
+          <p class="product-desc">Traditional arched prayer rug with soft touch foundation, easily rollable for personal use or prayer rooms.</p>
+          <div class="product-specs">
+            <div class="spec-row"><span class="spec-label">Sizes:</span><span class="spec-val">2×3.5 ft (60×105 cm) &bull; Custom Sets</span></div>
+            <div class="spec-row"><span class="spec-label">Material:</span><span class="spec-val">High-Density Velvet Microfiber & Cotton</span></div>
+            <div class="spec-row"><span class="spec-label">Price:</span><span class="spec-val price">₹650 - ₹1,800 / piece</span></div>
+          </div>
+          <div class="product-card-actions">
+            <button type="button" class="btn-view-full" onclick="window.openCarpetLightbox('carpet5.jpg', 'Handloom Prayer Mat & Small Accent Rug', 'Cushioned Janamaz', 'Traditional arched prayer rug with soft touch foundation, easily rollable for personal use or prayer rooms.', '2×3.5 ft (60×105 cm) &bull; Custom Sets', 'High-Density Velvet Microfiber & Cotton', '₹650 - ₹1,800 / piece', 'prod-005')">🔍 Full View</button>
+            <button type="button" class="btn-order-quote" onclick="window.openCarpetOrderModal('prod-005', 'Handloom Prayer Mat & Small Accent Rug')">Order / Quote →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <p class="section-tag">Our Process</p>
+    <h2 class="section-title">How We Work</h2>
+    <p class="section-sub">Simple, transparent, and reliable — from your order to dispatch.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step"><div class="hiw-icon">📋</div><div class="hiw-num">Step 01</div><h3>You Place an Order</h3><p>Contact us with your required quantity, size, design, and material specification.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">🎨</div><div class="hiw-num">Step 02</div><h3>Design & Sample</h3><p>We prepare a sample or confirm the design pattern and density before full production.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">🪡</div><div class="hiw-num">Step 03</div><h3>Handloom Production</h3><p>Our skilled weavers craft each piece on traditional looms with utmost attention to quality.</p></div>
+      <div class="hiw-step"><div class="hiw-icon">✅</div><div class="hiw-num">Step 04</div><h3>Quality Check & Dispatch</h3><p>Every piece is inspected, packed with moisture barrier, and dispatched on schedule.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why-bg">
+    <p class="section-tag" style="color:var(--gold);">Why Choose Us</p>
+    <h2 class="section-title">What Makes Us Different</h2>
+    <p class="section-sub">We are the makers — authentic craftsmanship, direct factory pricing, and committed schedules.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="icon">🤝</div><h3>Direct from the Maker</h3><p>No middlemen. You deal directly with us — better prices and faster decisions.</p></div>
+      <div class="why-card"><div class="icon">🪡</div><h3>100% Handloom</h3><p>Every carpet is woven by hand on traditional looms — authentic texture and longevity.</p></div>
+      <div class="why-card"><div class="icon">📦</div><h3>Reliable Bulk Supply</h3><p>We fulfill consistent wholesale orders on time, every time.</p></div>
+      <div class="why-card"><div class="icon">🎨</div><h3>Custom Made</h3><p>Need a specific size, colour, or design? We produce to your exact requirements.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section faq-section" id="faq">
+    <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+      <p class="section-tag" style="color:var(--rust);">Frequently Asked Questions</p>
+      <h2 class="section-title">Everything You Need to Know</h2>
+      <p class="section-sub" style="margin: 0 auto;">Answers to common questions regarding wholesale supply, bespoke weaving, minimum orders, and dispatch schedules.</p>
+    </div>
+
+    <div class="faq-grid">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the Minimum Order Quantity (MOQ) for wholesale orders?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>For standard handloom carpets and flatweave dhurries, our wholesale MOQ starts at <strong>15 to 20 pieces</strong> (or 100 sq. meters). For bespoke or custom-designed hotel/hospitality projects, we accept initial trial orders starting from <strong>10 pieces</strong>.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Can we request custom sizes, specific patterns, and color motifs?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, absolutely. Over 40% of our daily loom production is fully custom-made. You can share your CAD drawings, Pantone shade numbers, or sample swatches. We can weave oversized rugs (up to 14×20 ft), hallway runners, round carpets, and wall-to-wall pieces strictly to your specifications.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you provide sample swatches before bulk manufacturing?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. For bulk wholesale buyers, dealers, and export orders, we craft and courier a sample quality swatch (typically 1×1 ft or 2×2 ft) for density, weave texture, and dye approval before initiating full commercial production.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What materials, wool blends, and yarns do you use?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We work with 100% pure Indian & New Zealand blended wool, pure cotton dhurrie yarns, high-density chenille, jute-cotton blends, and viscose silk accents. All our yarns undergo professional colourfast testing to prevent bleeding and fading.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is your production and dispatch turnaround time?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Ready-stock inventory dispatches within <strong>24 to 48 hours</strong> from our Panipat warehouse. For custom bulk loom orders, production typically takes <strong>2 to 4 weeks</strong> depending on quantity, knot density, and finishing specifications.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you supply across India and support international exports?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! We supply wholesalers and project developers across all Indian states with door-to-door freight partners. For overseas buyers, we provide export-standard moisture barrier packaging, fumigation certificates, and dispatch via major Indian ports (Mundra, Nhava Sheva, or Delhi ICD).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & ENQUIRY -->
+  <section class="section" id="contact">
+    <div class="contact-grid">
+      <div>
+        <p class="section-tag">Get in Touch</p>
+        <h2 class="section-title">Ready to Place<br>an Order?</h2>
+        <p class="section-sub">We welcome inquiries from wholesalers, dealers, interior designers, and bulk buyers. Tell us what you need and our team will get back to you quickly.</p>
+          <div class="contact-info">
+            <div class="contact-item"><span class="ci-icon">📍</span><div><h4>Location & Works</h4><p>Near Navyug Public School, Batra Colony, Ward No. 2, Panipat, Haryana, India</p></div></div>
+            <div class="contact-item"><span class="ci-icon">📞</span><div><h4>Phone / WhatsApp</h4><p><a href="tel:+919253730103" style="color:var(--brown); text-decoration:none; font-weight:500;">+91 9253730103</a> &bull; <a href="https://wa.me/919253730103?text=Hi%20Jagdish%20Handloom%20Carpets,%20I%20am%20interested%20in%20your%20carpets" target="_blank" style="color:var(--rust); font-weight:600; text-decoration:none;">WhatsApp Us ↗</a></p></div></div>
+            <div class="contact-item"><span class="ci-icon">✉️</span><div><h4>Email</h4><p><a href="mailto:jagdishandloom.carpets@email.com" style="color:var(--brown); text-decoration:none;">jagdishandloom.carpets@email.com</a></p></div></div>
+            <div class="contact-item"><span class="ci-icon">🕐</span><div><h4>Working Hours</h4><p>Mon – Sat, 9:00 AM – 7:00 PM</p></div></div>
+          </div>
+
+        <div class="map-container" style="margin-top: 1.8rem; border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); box-shadow: 0 6px 20px rgba(59,42,26,0.08);">
+          <div style="background: var(--warm); padding: 8px 14px; font-size: 0.78rem; font-weight: 500; color: var(--brown); display: flex; justify-content: space-between; align-items: center;">
+            <span>📍 Near Navyug Public School, Batra Colony</span>
+            <a href="https://maps.google.com/?q=Navyug+Public+School+Batra+Colony+Panipat+Haryana" target="_blank" style="color: var(--rust); text-decoration: none; font-size: 0.75rem; font-weight: 600;">Open Maps ↗</a>
+          </div>
+          <iframe
+            title="Jagdish Handloom Carpets Factory Location"
+            src="https://maps.google.com/maps?q=Navyug+Public+School+Batra+Colony+Panipat+Haryana&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="240"
+            style="border:0; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name *" required />
+          <input type="text" placeholder="Company / Business Name" />
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone / WhatsApp *" required />
+          <input type="email" placeholder="Email Address" />
+        </div>
+        <select>
+          <option value="">— What are you looking for? —</option>
+          <option>Traditional Wool Carpets</option>
+          <option>Flatweave Dhurrie Rugs</option>
+          <option>Custom Order Carpets</option>
+          <option>Prayer Mats & Small Rugs</option>
+          <option>General Wholesale Inquiry</option>
+        </select>
+        <input type="text" placeholder="Approx. Quantity Needed (e.g. 50 pcs / 500 sq.m)"/>
+        <textarea placeholder="Tell us more — size, colour, pattern, delivery location, urgency..."></textarea>
+        <button type="button">Send Enquiry →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-brand">
+      <img src="logo.jpg" alt="Jagdish Handloom Logo" class="footer-logo-img" />
+      <div>
+        <div class="footer-title">JAGDISH HANDLOOM CARPETS</div>
+        <div class="footer-subtitle">Handloom Manufacturer · Panipat, Haryana</div>
+      </div>
+    </a>
+    <p>© 2026 JAGDISH Handloom Carpets. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/admin" class="footer-admin-link">Admin Portal 🔒</a>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP CTA -->
+  <a href="https://wa.me/919253730103?text=Hi%20Jagdish%20Handloom%20Carpets,%20I%20am%20interested%20in%20your%20carpets" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.04c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.24-4.27c0-4.43 3.61-8.04 8.04-8.04 2.15 0 4.17.84 5.69 2.36a8.007 8.007 0 0 1 2.35 5.68c0 4.43-3.61 8.03-8.05 8.03zm4.41-6.02c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.3-.01-.47-.01-.16 0-.42.06-.65.3-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.43-.59 1.63-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/>
+    </svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- SCRIPT FOR NAVIGATION, FAQ & FILTERING -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-toggle');
+    const mainNav = document.getElementById('main-nav-links');
+    if (mobileBtn && mainNav) {
+      mobileBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        mobileBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+      });
+    }
+    function closeMobileNav() {
+      if (mainNav && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        if (mobileBtn) mobileBtn.textContent = '☰';
+      }
+    }
+    function toggleMobileDropdown(e) {
+      if (window.innerWidth <= 1040) {
+        e.preventDefault();
+        const parent = e.target.closest('.nav-item-dropdown');
+        if (parent) {
+          const isOpen = parent.classList.contains('mobile-open');
+          document.querySelectorAll('.nav-item-dropdown').forEach(d => d.classList.remove('mobile-open'));
+          if (!isOpen) parent.classList.add('mobile-open');
+        }
+      }
+    }
+
+    // Handlers for Shop By Size & Services selections
+    function selectCarpetSize(size) {
+      const prodSec = document.getElementById('products');
+      if (prodSec) prodSec.scrollIntoView({ behavior: 'smooth' });
+
+      if (window.openCarpetOrderModal) {
+        window.openCarpetOrderModal('size-' + size.toLowerCase().replace(/\s+/g, '-'), 'Handloom Carpet (' + size + ')');
+        const sizeSelect = document.getElementById('order-carpet-size');
+        if (sizeSelect) {
+          let found = false;
+          for (let opt of sizeSelect.options) {
+            if (opt.value.toLowerCase().includes(size.toLowerCase())) {
+              opt.selected = true;
+              found = true;
+              break;
+            }
+          }
+          if (!found) {
+            const opt = document.createElement('option');
+            opt.value = size;
+            opt.textContent = size;
+            opt.selected = true;
+            sizeSelect.prepend(opt);
+          }
+        }
+      }
+    }
+
+    function openCustomSizeModal() {
+      if (window.openCarpetOrderModal) {
+        window.openCarpetOrderModal('custom-size-spec', 'Custom Size Carpet Order');
+        const sizeSelect = document.getElementById('order-carpet-size');
+        if (sizeSelect) sizeSelect.value = 'Custom Size';
+        const notes = document.getElementById('order-notes');
+        if (notes) {
+          notes.placeholder = 'Please specify your required width × length (e.g. 7×11 ft, circular 8 ft, or CAD plan)...';
+          notes.focus();
+        }
+      }
+    }
+
+    function openServicesModal(type) {
+      const isCustom = type === 'customisation';
+      const title = isCustom ? 'Bespoke Custom Carpet Weaving' : 'Wholesale Bulk Supply Booking';
+      if (window.openCarpetOrderModal) {
+        window.openCarpetOrderModal(type, title);
+        const notes = document.getElementById('order-notes');
+        if (notes) {
+          notes.value = isCustom
+            ? 'Requirement: Custom carpet size, specific color palette or bespoke design pattern.'
+            : 'Requirement: Bulk wholesale order for retail distribution, export or contract project.';
+        }
+      }
+    }
+
+    window.selectCarpetSize = selectCarpetSize;
+    window.openCustomSizeModal = openCustomSizeModal;
+    window.openServicesModal = openServicesModal;
+
+    // FAQ Accordion Toggle
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    }
+
+    // Carpet Category Filtering
+    function filterCarpetCategory(cat, btn) {
+      // Update active pill button
+      if (btn) {
+        document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        document.querySelectorAll('.cat-pill').forEach(b => {
+          if (b.getAttribute('data-filter') === cat) b.classList.add('active');
+          else b.classList.remove('active');
+        });
+      }
+
+      // Filter product cards
+      const cards = document.querySelectorAll('.products-grid .product-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'all' || cardCat === cat) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeUp 0.4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Smooth scroll to products section
+      const prodSection = document.getElementById('products');
+      if (prodSection) {
+        prodSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Expose globally for client.js
+    
+    window.filterCarpetCategory = filterCarpetCategory;
+    window.toggleFaq = toggleFaq;
+
+    // Fallback Lightbox function if client.js is offline or running under file://
+    if (!window.openCarpetLightbox) {
+      window.openCarpetLightbox = function(imgUrl, title, tag, desc, sizes, material, price, productId) {
+        let modal = document.getElementById('carpet-lightbox-modal');
+        if (!modal) return;
+        document.getElementById('lb-img').src = imgUrl;
+        document.getElementById('lb-title').textContent = title || 'Carpet';
+        document.getElementById('lb-tag').textContent = tag || 'AUTHENTIC HANDLOOM';
+        document.getElementById('lb-desc').textContent = desc || '';
+        document.getElementById('lb-sizes').textContent = sizes || '4×6, 5×8, 6×9, 8×10 ft, Custom';
+        document.getElementById('lb-material').textContent = material || 'Pure Handloom Yarn';
+        document.getElementById('lb-price').textContent = price || 'Contact for Price';
+        const orderBtn = document.getElementById('lb-order-btn');
+        if (orderBtn) {
+          orderBtn.onclick = function() {
+            window.closeCarpetLightbox();
+            if (window.openCarpetOrderModal) window.openCarpetOrderModal(productId, title);
+          };
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+      window.closeCarpetLightbox = function() {
+        const modal = document.getElementById('carpet-lightbox-modal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+    }
+  </script>
+
+  <!-- CARPET FULL PREVIEW LIGHTBOX MODAL -->
+  <div id="carpet-lightbox-modal" class="lightbox-modal" onclick="if(event.target === this) window.closeCarpetLightbox()">
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <div class="lightbox-title-wrap">
+          <span id="lb-tag">HANDLOOM COLLECTION</span>
+          <h3 id="lb-title">Carpet Title</h3>
+        </div>
+        <button class="lightbox-close" onclick="window.closeCarpetLightbox()" aria-label="Close Preview">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <div class="lightbox-img-area">
+          <img id="lb-img" src="" alt="Full Carpet View" />
+        </div>
+        <div class="lightbox-details">
+          <div class="lightbox-desc" id="lb-desc"></div>
+          <div class="lightbox-specs-table">
+            <div class="lightbox-spec-item">
+              <strong>Available Sizes:</strong>
+              <span id="lb-sizes"></span>
+            </div>
+            <div class="lightbox-spec-item">
+              <strong>Weave Material:</strong>
+              <span id="lb-material"></span>
+            </div>
+            <div class="lightbox-spec-item">
+              <strong>Wholesale Rate:</strong>
+              <span id="lb-price" style="color:#A85C38; font-weight:700;"></span>
+            </div>
+          </div>
+          <div class="lightbox-actions">
+            <button type="button" class="btn-order-quote" id="lb-order-btn" style="flex:1; padding:11px 18px; font-size:0.92rem; background:#A85C38; color:#fff; border:none; border-radius:3px; cursor:pointer; font-weight:600;">
+              Request Quote / Order This Carpet →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT SCRIPTS -->
+  <script src="/client.js"></script>
+</body>
+</html>
