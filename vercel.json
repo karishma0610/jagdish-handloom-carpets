@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/backend/public/admin/index.html"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/backend/public/admin/$1"
+    }
+  ]
+}
